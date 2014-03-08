@@ -135,9 +135,6 @@ if ( defined( 'WP_CLI' ) && WP_CLI ) {
 					'post_content' => $this->CLIContentGenerator->get_post_content()
 				);
 
-				var_dump( $args );
-
-
 				$id = wp_insert_post( $args, true );
 
 				$this->insert_post_meta( $id );
