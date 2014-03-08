@@ -13,8 +13,9 @@
 
 define( 'MPH_GENERATOR_FLICKR_API_KEY', '13c14b4cdf855a0627994e2ee92f26db' );
 
-if ( ! 'MPH_GENERATOR_FLICKR_API_KEY' )
+if ( ! defined('MPH_GENERATOR_FLICKR_API_KEY') || ! MPH_GENERATOR_FLICKR_API_KEY ) {
 	die( 'You must define the Flickr API key.' );
+}
 
 require_once(  'inc/strings.php' );
 require_once( 'inc/class.content-generator.php' );
