@@ -174,7 +174,11 @@ if ( defined( 'WP_CLI' ) && WP_CLI ) {
 				$name = implode( ' ', array_slice( explode( " ", $string ), 0, $length ) );
 				$parent_term_id = 0; // @todo - randomly assign term parent.
 				$term = wp_insert_term( $name, $taxonomy, array( 'description'=> $string, 'parent'=> $parent_term_id ) );
-				$this->terms[$taxonomy][] = $term['term_id'];
+
+				if ( ! is_wp_error( $term ) ) {
+					$this->terms[$taxonomy][] = $term['term_id'];
+				}
+
 			}
 
 		}
